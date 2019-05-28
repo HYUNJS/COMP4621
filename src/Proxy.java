@@ -32,9 +32,17 @@ public class Proxy extends Thread {
     }
 
     public static void filenameMapping(String url) {
+        String extension = "";
+        if(url.charAt(url.length()-1) == '/'){
+            extension = ".html";
+        }else{
+            int index = url.lastIndexOf('.');
+            extension = url.substring(index);
+        }
+
         String replaced = url.replaceAll("[:/?*<>\"|]","_");
         replaced = replaced.replace("\\","_");
-        replaced += ".html";
+        replaced += extension;
 
         cache.put(url,new File(CACHE_FOLDER+"/"+replaced));
     }
