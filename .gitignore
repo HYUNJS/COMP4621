@@ -1,4 +1,4 @@
-out
+out/
 .idea/
-Proxy_Cache
+Proxy_Cache/
 *.iml
